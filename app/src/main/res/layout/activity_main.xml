@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+<!--            app:layout_behavior="com.google.android.material.search.SearchBar$ScrollingViewBehavior">-->
+            <!-- Screen content goes here. -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_foreground" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_foreground" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_foreground" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_foreground" />
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bottom_nav"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/nearby"
+            app:icon="@drawable/round_location_on_24" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:compatShadowEnabled="true"
+            app:elevation="5dp"
+            app:labelVisibilityMode="unlabeled"
+            app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+            app:menu="@menu/menu_main" />
+
+    </RelativeLayout>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.search.SearchBar
+            android:id="@+id/search_bar"
+            style="@style/Widget.Material3.SearchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/search_room"
+            app:menu="@menu/menu_search"
+            app:navigationIcon="@drawable/round_drawer_24" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.search.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:autofillHints="no"
+        android:drawablePadding="10dp"
+        android:hint="@string/search_room"
+        android:imeOptions="actionSearch"
+        app:animateMenuItems="true"
+        app:animateNavigationIcon="true"
+        app:closeIcon="@drawable/round_close_24"
+        app:layout_anchor="@id/search_bar"
+        app:searchIcon="@drawable/round_mic_24"
+        app:voiceIcon="@drawable/round_mic_24">
+
+        <include layout="@layout/laout_header" />
+        <!-- Search suggestions/results go here (ScrollView, RecyclerView, etc.). -->
+    </com.google.android.material.search.SearchView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

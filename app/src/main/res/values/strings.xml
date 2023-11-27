@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My Application test</string>
+    <string name="home">Home</string>
+    <string name="notification">Notification</string>
+    <string name="voicesearch">Voice Search</string>
+    <string name="search_room">Search Room</string>
+    <string name="profile">Profile</string>
+    <string name="nearby">NearBy</string>
+</resources>
