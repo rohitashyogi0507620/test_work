@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.util.Log
+import android.util.TypedValue
 import android.view.MenuItem
 import android.widget.Toast
 import android.widget.Toolbar
@@ -43,18 +44,29 @@ class MainActivity : AppCompatActivity(), androidx.appcompat.widget.Toolbar.OnMe
             binding.searchView.hide()
             false
         }
+
+
+
+        val color = TypedValue().let {
+            theme.resolveAttribute(com.google.android.material.R.attr.colorSurface, it, true)
+                getColor(it.resourceId)
+        }
+
         binding.searchView.addTransitionListener { searchView, previousState, newState ->
             if (newState === TransitionState.SHOWING) {
                 if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    window.setStatusBarColor(getResources().getColor(R.color.md_theme_light_primary));
+                   // window.statusBarColor= android.R.attr.colorBackground
+                    window.statusBarColor= color
                 }
-                Toast.makeText(applicationContext, "SearchViewShowing", Toast.LENGTH_SHORT).show()
             } else if (newState === TransitionState.HIDING) {
-                Toast.makeText(applicationContext, "HIDEING", Toast.LENGTH_SHORT).show()
                 if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    window.setStatusBarColor(getResources().getColor(R.color.md_theme_light_surface));
+                    window.setStatusBarColor(getResources().getColor(R.color.mmd_theme_on_backgroud));
                 }
             }
+        }
+
+        binding.floating.setOnClickListener {
+            startActivity(Intent(this,MotionActivity::class.java))
         }
         loadImage()
     }

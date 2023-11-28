@@ -18,10 +18,19 @@
         <item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>
         <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
         <item name="colorOnBackground">@color/mmd_theme_on_backgroud</item>
-        <item name="colorSurface">@color/md_theme_light_surface</item>
         <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
+
+
+        <item name="colorSurface">@color/md_theme_light_surface</item>
+        <item name="android:colorBackground">@color/mmd_theme_on_backgroud</item>
         <item name="android:statusBarColor">@android:color/transparent</item>-->
         <item name="android:windowLightStatusBar">true</item>
+
+        ////colorSurface is color or surface of components likesearch view , bottomnav
+        // colorBackground is the background color of while app
+
     </style>
+
+
 
 </resources>
