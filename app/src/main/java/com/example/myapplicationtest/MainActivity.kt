@@ -8,7 +8,10 @@ import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.util.Log
 import android.util.TypedValue
+import android.view.LayoutInflater
 import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +21,14 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.example.myapplicationtest.databinding.ActivityMainBinding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.search.SearchView.TransitionState
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -45,6 +55,58 @@ class MainActivity : AppCompatActivity(), androidx.appcompat.widget.Toolbar.OnMe
             false
         }
 
+        val datePicker =
+            MaterialDatePicker.Builder.datePicker()
+                .setTitleText("Select date")
+                .setTheme(R.style.ThemeOverlay_App_DatePicker)
+                .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+                .build()
+      //  datePicker.show(supportFragmentManager,"false")
+
+        val dateRangePicker =
+            MaterialDatePicker.Builder.dateRangePicker()
+                .setTitleText("Select dates")
+                .build()
+
+      //  dateRangePicker.show(supportFragmentManager,"")
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle(resources.getString(R.string.title))
+            .setMessage(resources.getString(R.string.subtitle))
+            .setIcon(R.drawable.round_location_on_24)
+            .setNeutralButton("Cancel") { dialog, which ->
+                // Respond to neutral button press
+            }
+//            .setNegativeButton("Decline") { dialog, which ->
+//                // Respond to negative button press
+//            }
+            .setPositiveButton("Accept") { dialog, which ->
+                // Respond to positive button press
+            }
+            .show()
+
+
+        val picker = MaterialTimePicker.Builder()
+                .setTimeFormat(TimeFormat.CLOCK_24H)
+                .setHour(2)
+                .setMinute(2)
+                .setTitleText("Selecttime")
+                .build()
+
+      //  picker.show(supportFragmentManager, "tag");
+
+        picker.addOnPositiveButtonClickListener {
+            // call back code
+        }
+        picker.addOnNegativeButtonClickListener {
+            // call back code
+        }
+        picker.addOnCancelListener {
+            // call back code
+        }
+        picker.addOnDismissListener {
+            // call back code
+        }
 
 
         val color = TypedValue().let {
@@ -69,6 +131,24 @@ class MainActivity : AppCompatActivity(), androidx.appcompat.widget.Toolbar.OnMe
             startActivity(Intent(this,MotionActivity::class.java))
         }
         loadImage()
+
+        val modalBottomSheet = ModalBottomSheet()
+        modalBottomSheet.show(supportFragmentManager, ModalBottomSheet.TAG)
+
+
+    }
+
+    class ModalBottomSheet : BottomSheetDialogFragment() {
+
+        override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+        ): View? = inflater.inflate(R.layout.laout_header, container, false)
+
+        companion object {
+            const val TAG = "ModalBottomSheet"
+        }
     }
 
     private fun loadImage() {

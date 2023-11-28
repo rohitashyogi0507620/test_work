@@ -26,11 +26,25 @@
         <item name="android:statusBarColor">@android:color/transparent</item>-->
         <item name="android:windowLightStatusBar">true</item>
 
-        ////colorSurface is color or surface of components likesearch view , bottomnav
+         //colorSurface is color or surface of components likesearch view , bottomnav
         // colorBackground is the background color of while app
 
     </style>
 
+    <style name="ThemeOverlay.App.DatePicker" parent="@style/ThemeOverlay.Material3.MaterialCalendar">
+        <item name="colorPrimary">@color/md_theme_light_error</item>
+        <item name="colorOnPrimary">@color/md_theme_light_errorContainer</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
+        <!-- Customize text field of the text input mode. -->
+<!--        <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>-->
+    </style>
 
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">cut</item>
+    </style>
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerSize">16dp</item>
+    </style>
 
 </resources>
